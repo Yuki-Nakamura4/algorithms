@@ -53,3 +53,26 @@ for c1 in C:
                 M.append(T)
 
 print(len(M))
+
+# 綺麗な解法
+S = input().strip()
+patterns = set()
+
+N = len(S)
+for i in range(N):
+    for k in range(1, 4):
+        if i + k > N:
+            continue
+
+        sub = S[i : i + k]
+
+        for mask in range(1 << k):
+            t = list(sub)
+
+            for j in range(k):
+                # 各文字について、マスクが1ならば"."に置き換える
+                if mask & (1 << j):
+                    t[j] = "."
+            patterns.add("".join(t))
+
+print(len(patterns))
