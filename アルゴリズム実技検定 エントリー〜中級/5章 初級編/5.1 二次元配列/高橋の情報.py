@@ -34,3 +34,14 @@ if ok:
     print("Yes")
 else:
     print("No")
+
+# より綺麗な解法
+C = [list(map(int, input().split())) for _ in range(3)]
+
+ok = True
+for i in range(3):
+    for j in range(3):
+        if C[i][j] - C[i][0] != C[0][j] - C[0][0]:
+            ok = False
+
+print("Yes" if ok else "No")
