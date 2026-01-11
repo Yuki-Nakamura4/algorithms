@@ -35,7 +35,8 @@ if ok:
 else:
     print("No")
 
-# より綺麗な解法
+####################
+# 綺麗な解法
 C = [list(map(int, input().split())) for _ in range(3)]
 
 ok = True

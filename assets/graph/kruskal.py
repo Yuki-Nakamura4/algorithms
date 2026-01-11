@@ -42,3 +42,22 @@ if __name__ == "__main__":
 # - 各辺に対する Union-Find の操作にほぼ定数時間
 # 定数時間なのは、Union-Find の各操作が逆アッカーマン関数 α(n) に比例するため。α(n) は n が現実的な大きさであれば最大でも 4 以下になる非常に遅く増加する関数であるため、ほぼ定数時間とみなせる。
 # よって、全体の計算量は O(M log M)
+
+S = input()
+ans = set()
+
+for k in range(1, 4):
+    for i in range(len(S)):
+        if i + k > len(S):
+            continue
+
+        sub = S[i : i + k]
+
+        for mask in range(1 << k):
+            list_sub = list(sub)
+            for j in range(k):
+                if mask & 1 << j:  # &はビット演算のときのみ使う
+                    list_sub[j] = "."
+            ans.add("".join(list_sub))
+
+print(len(ans))

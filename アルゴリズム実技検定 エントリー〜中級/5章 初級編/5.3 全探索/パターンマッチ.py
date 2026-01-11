@@ -54,6 +54,7 @@ for c1 in C:
 
 print(len(M))
 
+########################
 # 綺麗な解法
 S = input().strip()
 patterns = set()
